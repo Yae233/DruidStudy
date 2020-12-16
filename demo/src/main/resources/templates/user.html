@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>user</title>
+</head>
+<body>
+<input type="button" value="新增" class="ui_input_btn01" id="addBtn" onclick="window.location.href='/toadd'"/>
+<table class="table" cellspacing="0" cellpadding="0" width="100%" align="left" border="0">
+    <tr>
+        <th>用户名</th>
+        <th>密码</th>
+        <th>操作</th>
+    </tr>
+    <tr th:each="user:${list}">
+        <td th:text="${user.username}"></td>
+        <td th:text="${user.pwd}"></td>
+        <td>
+            <a th:href="@{/toedit/{username}(username=${user.username})}" class="edit">编辑</a>
+            <a th:href="@{/del/{username}(username=${user.username})}">删除</a>
+        </td>
+    </tr>
+</table>
+
+</body>
+<html>
